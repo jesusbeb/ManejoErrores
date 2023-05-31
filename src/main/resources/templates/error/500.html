@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ha ocurrido un error Oops!</title>
+	</head>
+<!--Plantilla para personalizar el error 500. Es importante que estas plantillas se ubique en templates/error, esta parametrizado asi-->	
+	<body>
+		<h3>Ha ocurrido un error Ooops!</h3>
+		<!--Muestra nombre del error -->
+		<div th:text="${error}"></div>
+		<!--Muestra mensaje del error -->
+		<div th:text="${message}"></div>
+		<!--Muestra el status del error -->
+		<div th:text="${status}"></div>
+		<!--Muestra la fecha actual-->
+		<div th:text="${timestamp}"></div>
+		<hr>
+		<!--La traza muestra mucha informacion importante para el desarrollador, no para el usuario. Por lo general no se incluye -->
+		<div th:text="${trace}"></div>
+	</body>	
+</html>

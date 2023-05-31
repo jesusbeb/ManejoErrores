@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Lo sentimos, pagina no encontrada 404</title>
+	</head>
+<!--Plantilla para personalizar el error 404, pagina no existe. Es importante que estas plantillas se ubique en templates/error, esta parametrizado asi-->		
+	<body>
+		<h3>Oops pagina no encontrada</h3>
+		<div th:text="${error}"></div>
+		<div th:text="${status}"></div>
+		<div th:text="${timestamp}"></div>
+		<hr>
+		<!--Ruta que se busco-->
+		<div th:text="${path}"></div>
+	</body>	
+</html>
