@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.bolsadeideas.springboot.error.app.errors.UsuarioNoEncontradoExcepcion;
 import com.bolsadeideas.springboot.error.app.models.domain.Usuario;
 import com.bolsadeideas.springboot.error.app.services.UsuarioService;
 
@@ -29,6 +30,11 @@ public class AppController {
 	public String ver(@PathVariable Integer id, Model model) {
 		//Obtenemos el usuario que se busca por Id con el metodo obtenerPorId
 		Usuario usuario = usuarioService.obtenerPorId(id);
+		
+		//si el usuario es null, lanzamos la excepcion que creamos
+		if(usuario==null) {
+			throw new UsuarioNoEncontradoExcepcion(id.toString());
+		}
 		//pasamos a la vista el usuario obtenido
 		model.addAttribute("usuario", usuario);
 		//pasamomos a la vista mensajes y el nombre del usuario

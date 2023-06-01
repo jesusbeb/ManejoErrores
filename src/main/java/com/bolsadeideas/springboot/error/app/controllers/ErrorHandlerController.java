@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import com.bolsadeideas.springboot.error.app.errors.UsuarioNoEncontradoExcepcion;
+
 
 //Esta anotacion maneja errores
 @ControllerAdvice
@@ -38,6 +40,19 @@ public class ErrorHandlerController {
 		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
 		model.addAttribute("timestamp", new Date());
 		return "error/numero-formato";
+		//return "error/generica"; //plantilla en comun que tambien se puede retornar
+	}
+	
+	
+	//Personalizamos UsuarioNoEncontradoExcepcion
+	@ExceptionHandler(UsuarioNoEncontradoExcepcion.class)
+	//pasamos el objeto error como ex y el Model como model
+	public String UsuarioNoEncontradoExcepcion(UsuarioNoEncontradoExcepcion ex, Model model) {
+		model.addAttribute("error", "Usuario no encontrado :(");
+		model.addAttribute("message", ex.getMessage());
+		model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+		model.addAttribute("timestamp", new Date());
+		return "error/generica";
 		//return "error/generica"; //plantilla en comun que tambien se puede retornar
 	}
 }
