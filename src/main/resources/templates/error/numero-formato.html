@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title th:text="${error}"></title>
+	</head>
+<!--Esta plantilla muestra que muestra el resultado de personalizar NumberFormatException
+	Dado que esta plantilla es muy parecida a "aritmetica.html" se crea una plantilla en comun "generica.html"
+-->	
+	<body>
+		<h3 th:text="${error}"></h3>
+		
+		<!--Muestra mensaje del error -->
+		<div th:text="${message}"></div>
+		<!--Muestra el status del error -->
+		<div th:text="${status}"></div>
+		<!--Muestra la fecha actual-->
+		<div th:text="${timestamp}"></div>
+
+	</body>	
+</html>

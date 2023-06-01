@@ -8,7 +8,8 @@ public class AppController {
 
 	@GetMapping("/index")
 	public String index() {
-		Integer valor = 100/0; //variable para forzar un error. Este error sucedera primero, por lo tanto no sucedera algun otro error que continue
+		//Integer valor = 100/0; //variable para forzar un error. Este error sucedera primero, por lo tanto no sucedera algun otro error que continue
+		Integer valor = Integer.parseInt("10fdgfg"); //Forzamos un error NumberFormatException y personalizamos lo que muestre
 		return "index";
 	}
 }
